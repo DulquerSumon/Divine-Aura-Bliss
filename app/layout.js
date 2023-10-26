@@ -1,6 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
 import { Web3ReactProvider } from "@web3-react/core";
 import { connectors } from "@/connectors";
 import { store } from "@/redux/store";
