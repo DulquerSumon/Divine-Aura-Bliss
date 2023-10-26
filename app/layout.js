@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Web3ReactProvider } from "@web3-react/core";
 import { connectors } from "@/connectors";
+import { store } from "@/redux/store";
+import { Provider } from "react-redux";
 const inter = Inter({ subsets: ["latin"] });
 
 const metadata = {
@@ -14,7 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Web3ReactProvider connectors={connectors}>
-        <body className={inter.className}>{children}</body>
+        <Provider store={store}>
+          <body className={inter.className}>{children}</body>
+        </Provider>
       </Web3ReactProvider>
     </html>
   );
