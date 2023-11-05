@@ -5,6 +5,7 @@ import { Web3ReactProvider } from "@web3-react/core";
 import { connectors } from "@/connectors";
 import { store } from "@/redux/store";
 import { Provider } from "react-redux";
+import { Navbar } from "@/components";
 const inter = Inter({ subsets: ["latin"] });
 
 const metadata = {
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Web3ReactProvider connectors={connectors}>
         <Provider store={store}>
-          <body className={inter.className}>{children}</body>
+          <body className={inter.className}>
+            <Navbar />
+            <main>{children}</main>
+          </body>
         </Provider>
       </Web3ReactProvider>
     </html>
