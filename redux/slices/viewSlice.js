@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentAccount: "h",
+  currentAccount: "",
 };
 
 export const viewSlice = createSlice({
