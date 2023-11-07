@@ -2,7 +2,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ViewFunctions from "@/redux/blockchain/viewFunctions";
 const Navbar = () => {
+  const { currentAccount, connectWallet } = ViewFunctions();
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   return (
     <nav className="flex w-full text-white bg-[#2E2B59] xs:h-8 sm:h-10 md:h-12 xm:h-12 lg:h-12 minmd:h-14 minlg:h-[70px] text-center justify-between items-center xs:px-2 xs:py-1 sm:px-4 sm:py-2 md:px-5 md:py-2 xm:px-6 xm:py-3 lg:px-7 lg:py-3 minmd:px-8 minmd:py-4 minlg:px-10 minlg:py-3 border-b border-b-white">
@@ -41,8 +43,11 @@ const Navbar = () => {
             <div className=" cursor-pointer hover:bg-cyan-500 sm:px-1 sm:py-[2px] rounded-xl">
               My Profile
             </div>
-            <div className=" cursor-pointer hover:bg-cyan-500 sm:px-1 sm:py-[2px] rounded-xl">
-              Connect Wallet
+            <div
+              className=" cursor-pointer hover:bg-cyan-500 sm:px-1 sm:py-[2px] rounded-xl"
+              onClick={() => connectWallet()}
+            >
+              {currentAccount ? "DisConnect" : "Connect Wallet"}
             </div>
           </div>
         )}
@@ -62,8 +67,11 @@ const Navbar = () => {
           <div className=" cursor-pointer hover:bg-cyan-500 md:px-2 md:py-[2px] xm:px-2 xm:py-1 lg:py-1 lg:px-2 minmd:py-1 minmd:px-3 minlg:py-2 minlg:px-3 rounded-full">
             My Profile
           </div>
-          <div className=" cursor-pointer hover:bg-cyan-500 md:px-2 md:py-[2px] xm:px-2 xm:py-1 lg:py-1 lg:px-2 minmd:py-1 minmd:px-3 minlg:py-2 minlg:px-3 rounded-full">
-            Connect Wallet
+          <div
+            className=" cursor-pointer hover:bg-cyan-500 md:px-2 md:py-[2px] xm:px-2 xm:py-1 lg:py-1 lg:px-2 minmd:py-1 minmd:px-3 minlg:py-2 minlg:px-3 rounded-full"
+            onClick={() => connectWallet()}
+          >
+            {currentAccount ? "DisConnect" : "Connect Wallet"}
           </div>
         </div>
       </div>
